@@ -24,11 +24,19 @@
     top:0;
     left:0;
 }
-.nft-item-name, .nft-item-description, .nft-item-price, .nft-item-owner {
+.nft-item-name, .nft-item-price, .nft-item-owner {
     padding: 8px;
 }
 .nft-item-description {
+    padding: 0 8px;
+    margin: 4px 0;
     color: rgb(84,84,84);
+    /* ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .nft-item-actions {
     display: flex;

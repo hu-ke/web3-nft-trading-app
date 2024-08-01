@@ -3,8 +3,9 @@ import axios from "axios";
 const baseUrl =  import.meta.env.VITE_API_BASE || 'http://127.0.0.1:7001'
 
 export const createNFT = async(nft) => {
-    let { data } = await axios.post(`${baseUrl}/api/createNFT`, nft)
-    return data
+    let res = await axios.post(`${baseUrl}/api/createNFT`, nft)
+    console.log('res', res)
+    return res.data
 }
 
 export const deleteNFT = async(nft) => {

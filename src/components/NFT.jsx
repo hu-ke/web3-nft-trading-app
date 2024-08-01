@@ -1,7 +1,7 @@
 import React from 'react';
 import './NFT.css';
 import shortAddress from '../utils/shortAddress';
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, Button, Tooltip } from 'antd';
 
 function NFT({ nft, isOwner, isMinted, handleDelete, handleMint, handleBuy, isMinting, isBuying }) {
   return (
@@ -11,7 +11,9 @@ function NFT({ nft, isOwner, isMinted, handleDelete, handleMint, handleBuy, isMi
         <img className="nft-item-img" src={nft.image} />
       </div>
       <div className="nft-item-name">{nft.name}</div>
-      <div className="nft-item-description">{nft.description}</div>
+      <Tooltip title={nft.description}>
+        <div className="nft-item-description">{nft.description}</div>
+      </Tooltip>
       <div className="nft-item-price">{nft.price} ETH</div>
       <div className="nft-item-owner">Owner: {shortAddress(nft.account)}</div>
       <div className="nft-item-actions">

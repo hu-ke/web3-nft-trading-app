@@ -18,7 +18,21 @@ function NFT({ nft, isOwner, isMinted, handleDelete, handleMint, handleBuy, isMi
       <div className="nft-item-owner">Owner: {shortAddress(nft.account)}</div>
       <div className="nft-item-actions">
         {
-          !isOwner ? (<div className="nft-item-actions-btn buy" onClick={() => { handleBuy(nft) }}><Button loading={isBuying} disabled={isBuying} type="link" style={{color: '#fff', fontWeight: 600}}>Buy</Button></div>) : (
+          !isOwner ? (
+              <div 
+                className="nft-item-actions-btn buy" 
+                onClick={() => { handleBuy(nft) }}
+              >
+                <Button 
+                  loading={isBuying} 
+                  disabled={isBuying} 
+                  type="link" 
+                  style={{color: '#fff', fontWeight: 600}}
+                >
+                  Buy
+                </Button>
+              </div>
+            ) : (
             <>
               {
                 isMinted ? '' : (

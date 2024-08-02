@@ -55,6 +55,10 @@ const App = () => {
   }
 
   const fetchURIs = async() => {
+    if (!window.ethereum) {
+      console.error('[fetchURIs error] Please check if your Metamask is open.')
+      return
+    }
     // const contractAddress = '0x5161Fb78ee6D113fBAEb325c18fA391b69D4AC06'
     const contractAddress = '0x0677E4Dd20De385a986eDA724E03395b6e7A7199' // sepolia test network address
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -81,13 +85,13 @@ const App = () => {
   }, [])
 
   const fetchMintedNFTs = useCallback(async() => {
-    if (uris.length > 0 && activeTabKey === TAB_KEYS.TRENDING_NFTS) {
-      let res = await getMintedNFTs(uris)
+    if (activeTabKey === TAB_KEYS.TRENDING_NFTS) {
+      let res = await getMintedNFTs()
       if (res.code === 200) {
         setMintedNFTs(res.data)
       }
     }
-  }, [uris, activeTabKey])
+  }, [activeTabKey])
 
   useEffect(() => {
     fetchMintedNFTs()

@@ -26,6 +26,14 @@ const App = () => {
   const [currentBuyingNFT, setCurrentBuyingNFT] = useState()
 
   const buyNFT = async(nft) => {
+    if (!nftContractInstance) {
+      messageApi.open({
+        type: 'error',
+        content: 'Make sure your Metamask wallets has been installed and opened.',
+        duration: 5
+      })
+      return
+    }
     setIsBuying(true)
     setCurrentBuyingNFT(nft)
     const priceInWei = ethers.utils.parseEther(`${nft.price}`); // 将ETH转换为Wei

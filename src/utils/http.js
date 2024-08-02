@@ -21,6 +21,14 @@ export const updateNFTAccount = async(nftId, account) => {
     return data
 }
 
+export const updateNFTMintingStatus = async(nftId, isMinted) => {
+    let { data } = await axios.post(`${baseUrl}/api/updateNFTMintingStatus`, {
+        nftId,
+        isMinted
+    })
+    return data
+}
+
 export const getMintedNFTs = async(uris) => {
     let { data } = await axios.get(`${baseUrl}/api/getMintedNFTs`)
     return data

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import { Button, Form, Modal, Input, InputNumber, message } from 'antd';
-import { deleteNFT, createNFT, getMyNFTs } from '../utils/http'
+import { deleteNFT, createNFT, getMyNFTs, updateNFTMintingStatus } from '../utils/http'
 import { ethers } from 'ethers';
 import NFT from '../components/NFT'
 
@@ -28,9 +28,14 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
       let transaction = await nftContractInstance.connect(signer).mint(nft.image, priceInWei)
       console.log('transaction', transaction)
       await transaction.wait()
-      messageApi.success('minted successfully, now others can buy the NFT.')
-      doneMinting(nft)
-      fetchMyNFTs()
+      let res = await updateNFTMintingStatus(nft.id, true)
+      if (res.code === 200) {
+        messageApi.success('minted successfully, now others can buy the NFT.')
+        doneMinting(nft)
+        fetchMyNFTs()
+      } else if (res.msg) {
+        messageApi.error('res.msg')
+      }
     } catch(e) {
       console.error('mint error', e)
       messageApi.error(e.messsage)

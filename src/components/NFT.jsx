@@ -1,6 +1,6 @@
 import React from 'react';
 import './NFT.css';
-import shortAddress from '../utils/shortAddress';
+import shortAddress from '@/utils/shortAddress';
 import { Popconfirm, Button, Tooltip } from 'antd';
 
 function NFT({ nft, isOwner, isMinted, handleDelete, handleMint, handleBuy, isMinting, isBuying }) {

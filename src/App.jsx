@@ -4,7 +4,7 @@ import useAccountHook from './hooks/useAccountHook';
 import { getMintedNFTs, updateNFTAccount } from './utils/http'
 import MyNFTs from './pages/MyNFTs';
 import { ethers } from 'ethers';
-import MyNFTContract from './contracts/MyNFT.json'
+// import MyNFTContract from './contracts/MyNFT.json'
 import shortAddress from './utils/shortAddress'
 import NFT from './components/NFT'
 import { message } from 'antd';
@@ -68,6 +68,7 @@ const App = () => {
       return
     }
     // const contractAddress = '0x5161Fb78ee6D113fBAEb325c18fA391b69D4AC06'
+    let MyNFTContract = await import('./contracts/MyNFT.json')
     const contractAddress = '0x0677E4Dd20De385a986eDA724E03395b6e7A7199' // sepolia test network address
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)

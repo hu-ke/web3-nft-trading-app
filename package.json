@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --mode prod",
+    "dev": "node scripts/extract-mynft-abi.js & vite",
+    "build": "node scripts/extract-mynft-abi.js & vite build --mode prod",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@openzeppelin/contracts": "^4.9.6",
+    "@rollup/plugin-alias": "^5.1.0",
     "@truffle/hdwallet-provider": "^2.1.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -28,6 +29,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "rollup-plugin-visualizer": "^5.12.0",
     "vite": "^5.3.4",
     "web3": "^4.11.0"
   }

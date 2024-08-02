@@ -1,8 +1,8 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import { Button, Form, Modal, Input, InputNumber, message } from 'antd';
-import { deleteNFT, createNFT, getMyNFTs, updateNFTMintingStatus } from '../utils/http'
+import { deleteNFT, createNFT, getMyNFTs, updateNFTMintingStatus } from '@/utils/http'
 import { ethers } from 'ethers';
-import NFT from '../components/NFT'
+import NFT from '@/components/NFT'
 
 const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, ref) => {
   const [messageApi, contextHolder] = message.useMessage();

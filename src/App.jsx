@@ -29,7 +29,7 @@ const App = () => {
     if (!nftContractInstance) {
       messageApi.open({
         type: 'error',
-        content: 'Make sure your Metamask wallets has been installed and opened.',
+        content: 'Make sure your Metamask is installed and open.',
         duration: 5
       })
       return

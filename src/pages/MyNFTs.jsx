@@ -36,7 +36,7 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
       }
     } catch(e) {
       console.error('mint error', e)
-      messageApi.error(e)
+      messageApi.error(e?.code)
     } finally {
       setMinting(false)
     }

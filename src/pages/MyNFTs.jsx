@@ -29,6 +29,7 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
       console.log('transaction', transaction)
       await transaction.wait()
       let res = await updateNFTMintingStatus(nft.id, true)
+      console.log('res>', res)
       if (res.code === 200) {
         messageApi.success('minted successfully, now others can buy the NFT.')
         doneMinting(nft)

@@ -50,7 +50,7 @@ Web3 NFT 交易应用是一个去中心化应用 (DApp)，允许用户在 Sepoli
    # 或
    yarn start
    ```
-4. 打开浏览器并访问 http://localhost:3000 查看应用。
+4. 打开浏览器并访问 http://localhost:5173 查看应用。
 ## 后端 API
 此应用的后端 API 使用 Egg.js 实现。您可以在 web3-nft-trading-node 仓库中找到后端代码和更多详细信息。
 

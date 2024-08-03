@@ -37,11 +37,8 @@ const App = () => {
     setIsBuying(true)
     setCurrentBuyingNFT(nft)
     const priceInWei = ethers.utils.parseEther(`${nft.price}`); // 将ETH转换为Wei
-    console.log('priceInWei', priceInWei)
     let signer = await provider.getSigner() // equals to account
-    console.log('signer', signer)
     let tokenId = await nftContractInstance.connect(signer).getTokenIdByTokenURI(nft.image)
-    console.log('tokenId', tokenId)
     try {
       const transaction2 = await nftContractInstance.connect(signer).buyNFT(tokenId, { value: priceInWei });
       console.log('Transaction sent, waiting for confirmation...')

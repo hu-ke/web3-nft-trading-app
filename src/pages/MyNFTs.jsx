@@ -19,14 +19,11 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
     }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     let signer = await provider.getSigner() // equals to account
-    console.log('nft.image', nft.image)
     setMinting(true)
     setCurrentNFT(nft)
     try {
       const priceInWei = ethers.utils.parseEther(`${nft.price}`); // 将ETH转换为Wei
-      console.log('priceInWei', priceInWei)
       let transaction = await nftContractInstance.connect(signer).mint(nft.image, priceInWei)
-      console.log('transaction', transaction)
       await transaction.wait()
       let res = await updateNFTMintingStatus(nft.id, true)
       console.log('res>', res)
@@ -39,7 +36,7 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
       }
     } catch(e) {
       console.error('mint error', e)
-      messageApi.error(e.messsage)
+      messageApi.error(e)
     } finally {
       setMinting(false)
     }

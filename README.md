@@ -1,3 +1,7 @@
+<p align="center">
+    <br> English | <a href="README-CN.md">中文</a>
+</p>
+
 # Web3 NFT Trading App
 
 This repository contains the frontend part of the NFT asset generation and trading application deployed on the Sepolia network. The application is hosted at [sepolia.reader.guru](https://sepolia.reader.guru/).
@@ -46,7 +50,7 @@ The Web3 NFT Trading App is a decentralized application (DApp) that allows users
    # or
    yarn start
    ```
-4. Open your browser and visit http://localhost:3000 to see the application in action.
+4. Open your browser and visit http://localhost:5173 to see the application in action.
 ## Backend API
 The backend API for this application is implemented using Egg.js. You can find the backend repository and more details at web3-nft-trading-node.
 

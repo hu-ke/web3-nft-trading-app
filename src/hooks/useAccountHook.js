@@ -17,7 +17,7 @@ function useAccountHook() {
     ethereum.on('accountsChanged', (accounts) => {
       if (accounts.length > 0) {
         console.log('Account changed:', accounts[0]);
-        window.reload()
+        window.location.reload()
         setAccount(account[0])
       } else {
         console.log('Please connect to MetaMask.');

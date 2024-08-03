@@ -91,7 +91,6 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
         nft.image = defaultIPFSImage
       }
       let res = await createNFT(nft)
-      console.log('res',res)
       if (res.code === 200) {
         messageApi.open({
           type: 'success',
@@ -99,6 +98,7 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
         });
         fetchMyNFTs()
         setIsModalVisible(false)
+        form.resetFields()
       } else if (res.code === 400) {
         messageApi.open({
           type: 'error',

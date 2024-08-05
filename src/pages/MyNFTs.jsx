@@ -121,7 +121,9 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
       {
         myNFTs.length > 0 ? (
           <>
-            <p><Button onClick={showCreatingForm} type="primary" disabled={!account}>create a NFT</Button></p>
+            <p>
+              <Button onClick={showCreatingForm} type="primary" disabled={!account}>create a NFT</Button>
+            </p>
             <div className="main-nftwrap">
               {
                 myNFTs.map(nft => {
@@ -143,6 +145,7 @@ const MyNFTs = forwardRef(({account, nftContractInstance, uris, doneMinting}, re
         ) : (
           <div onClick={showCreatingForm} style={{ marginTop: 10 }}>
             You don't have any NFTs, please <Button type="primary" disabled={!account}>create a NFT</Button>
+            {account ? '' : <span style={{color: 'orange'}}> you need to install Metamask to create NFTs.</span>}
           </div>
         )
       }
